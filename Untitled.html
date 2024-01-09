@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>График гиперболы</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="download-buttons-container">
+            <a href="#" class="button-1">
+                <svg width="35px" height="35px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000000">
+                    <path d="M20 12L5 21V3z" />
+                </svg>
+            </a>
+            <a href="#" class="button-2">
+                <svg width="35px" height="35px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-labelledby="pauseIconTitle" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" color="#000000">
+                    <rect width="4" height="16" x="5" y="4"/>
+                    <rect width="4" height="16" x="15" y="4"/>
+                </svg>
+            </a>
+            <a href="#" class="download-button">
+                <svg width="35px" height="35px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="downloadIconTitle" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000000">
+                    <title id="downloadIconTitle">Download</title>
+                    <path d="M12,3 L12,16"/>
+                    <polyline points="7 12 12 17 17 12"/>
+                    <path d="M20,21 L4,21"/>
+                </svg>
+            </a>
+            <a href="#" class="button-4">
+                <svg width="35px" height="35px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-labelledby="retweetIconTitle" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000000">
+                    <title id="retweetIconTitle">Retweet</title>
+                    <path d="M13 18L6 18L6 7"/>
+                    <path d="M3 9L6 6L9 9"/>
+                    <path d="M11 6L18 6L18 17"/>
+                    <path d="M21 15L18 18L15 15"/>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <section class="left-section">
+            <!-- Содержимое левой части (график) -->
+            <div id="plot"></div>
+        </section>
+
+        <section class="right-section">
+            <!-- Содержимое правой части (таблица) -->
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>X</th>
+                        <th>Y</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>
+        </section>
+    </div>
+
+    <!-- Скрипт для генерации данных и построения графика -->
+    <script src="script.js"></script>
+</body>
+</html>
