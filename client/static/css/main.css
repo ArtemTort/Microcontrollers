@@ -97,3 +97,12 @@ header .download-buttons-container {
     align-items: center;
     justify-content: flex-end;
 }
+
+#logoutBtn {
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
