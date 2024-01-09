@@ -1,0 +1,6 @@
+{
+    "PORT": 3000,
+    "mongoURI": "mongodb+srv://musienko_artem:YoCRM97RFWaXE9g9@cluster0.okxgjn0.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret": "long phrase whith some sense, like: pizza hamster bubles and shrek is restaurant eat ice cream and drink coca-cola",
+    "baseUrl": "http://localhost:3000"
+}
