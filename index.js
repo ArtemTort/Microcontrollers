@@ -13,8 +13,12 @@ app.use('/api/auth', require('./routes/auth.routes'))
 
 app.use('/', express.static(path.join(__dirname, 'client')))
 
+app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "view", "auth.html")); 
+})
+
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "view", "index.html"));
+    res.sendFile(path.resolve(__dirname, "client", "view", "error.html"));
 })
 
 async function start() {

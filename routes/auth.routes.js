@@ -16,6 +16,7 @@ router.post(
     ],
     async (req, res) => {
         try {
+
             const errors = validationResult(req);
 
             if (!errors.isEmpty()) {
@@ -42,8 +43,14 @@ router.post(
             });
 
             await newUser.save();
+            
+            const token = jwt.sign(
+                { userId: newUser.id },
+                config.get('jwtSecret'),
+                { expiresIn: '6h' } 
+            );
 
-            res.status(201).json({ message: "User successfully created" });
+            res.status(201).json({ token, userId: newUser.id });
         } catch (err) {
             res.status(500).json({ message: "Error with registration" });
             console.error(err.message);
@@ -94,7 +101,7 @@ router.post(
             const token = jwt.sign(
                 { userId: user.id },
                 config.get('jwtSecret'),
-                { expiresIn: '6h' } // TODO: МОЖно убрать потом
+                { expiresIn: '6h' } 
             );
 
             res.status(200).json({ token, userId: user.id });
