@@ -5,7 +5,7 @@ module.exports = (req, res, next) => {
     if (req.method == "OPTIONS") return next();
 
     try {
-        const token = req.headers.authorization.split(" ")[1];
+        const token = req.body.token
         let isExpire = false;
 
         if (!token) {
@@ -24,6 +24,7 @@ module.exports = (req, res, next) => {
         if (isExpire) {
             return res.status(200).json({ isExpire });
         } 
+
 
         next();
     } catch (err) {

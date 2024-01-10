@@ -1,16 +1,15 @@
 const { Router } = require("express");
-const config = require("config");
-const shortid = require('shortid');
+const path = require('path');
 const AuthMiddleware = require("../middleware/auth.middleware");
 
 const router = Router();
 
-router.get("/", AuthMiddleware, async (req, res) => {
+router.post("/", AuthMiddleware, async (req, res) => {
+
     try {
-        const links = await Link.find({ owner: req.user.userId });
-        res.json(links);
+        res.sendFile('../client/view/index.html'); 
     } catch (err) {
-        res.status(500).json({ message: "Error with getting all links" });
+        res.status(500).json({ message: "Error with user" });
         console.error(err.message);
     }
 });
