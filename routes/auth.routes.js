@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator"); 
 const config = require("config");
 const User = require("../models/User");
+const authLog = require('../lib/logger')
 
 const router = Router();
 
@@ -49,6 +50,8 @@ router.post(
                 config.get('jwtSecret'),
                 { expiresIn: '6h' } 
             );
+
+            authLog(email, Date())
 
             res.status(201).json({ token, userId: newUser.id });
         } catch (err) {
@@ -103,6 +106,8 @@ router.post(
                 config.get('jwtSecret'),
                 { expiresIn: '6h' } 
             );
+
+            authLog(email, Date())
 
             res.status(200).json({ token, userId: user.id });
         } catch (err) {
